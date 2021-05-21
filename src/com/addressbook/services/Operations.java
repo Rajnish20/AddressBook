@@ -50,5 +50,12 @@ public class Operations implements IOperations {
 	    System.out.println("Enter Email Id");
 	    email = scanner.nextLine();
 	}
+	
+
+	@Override
+	public void deleteContacts() {
+		contact = null;
+		
+	}
 
 }

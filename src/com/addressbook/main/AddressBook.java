@@ -18,6 +18,9 @@ public class AddressBook {
 
 		if (option == 1)
 			operations.addContacts();
+		else if(option == 2)
+			operations.deleteContacts();
+		
 
 	}
 
