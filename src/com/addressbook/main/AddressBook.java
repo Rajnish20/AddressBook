@@ -20,7 +20,8 @@ public class AddressBook {
 			operations.addContacts();
 		else if(option == 2)
 			operations.deleteContacts();
-		
+		else
+			operations.updateContacts();
 
 	}
 

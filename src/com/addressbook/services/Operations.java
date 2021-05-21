@@ -58,4 +58,21 @@ public class Operations implements IOperations {
 		
 	}
 
+	@Override
+	public void updateContacts() {
+		enterDetails();
+		contact.firstName = firstName;
+		contact.lastName = lastName;
+		contact.address = address;
+		contact.city = city;
+		contact.state = state;
+		contact.pincode = pincode;
+		contact.mobileNo = mobileNo;
+		contact.email = email;
+		
+		System.out.println("Record Updated Successfully");
+		
+		
+	}
+
 }
