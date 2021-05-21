@@ -9,12 +9,14 @@ public class Contact {
 	/**
 	 * Details of a person that should be added in address book
 	 */
-	private String firstName;
-	private String lastName;
-	private String address;
-	private String city;
-	private String state;
-	private int pincode;
-	private int mobileNo;
+	public String firstName;
+	public String lastName;
+	public String address;
+	public String city;
+	public String state;
+	public String pincode;
+	public String mobileNo;
+	public String email;
+	
 	
 }
