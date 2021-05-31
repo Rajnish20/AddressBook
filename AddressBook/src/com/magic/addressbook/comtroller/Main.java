@@ -2,9 +2,7 @@ package com.magic.addressbook.comtroller;
 
 import java.util.Scanner;
 
-import com.magic.addressbook.entity.*;
 import com.magic.addressbook.services.*;
-import sun.security.timestamp.TSRequest;
 
 public class Main {
 
@@ -21,7 +19,7 @@ public class Main {
             System.out.println("Enter 6 to exit");
             option = scanner.nextInt();
             switch (option) {
-                case 1:6
+                case 1:
                     String dummy1 = scanner.nextLine();
                     System.out.println("Enter Address Book Name");
                     String addressBookName = scanner.nextLine();
