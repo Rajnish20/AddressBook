@@ -1,8 +1,10 @@
 package com.magic.addressbook.comtroller;
+
 import java.util.Scanner;
 
 import com.magic.addressbook.entity.*;
 import com.magic.addressbook.services.*;
+import sun.security.timestamp.TSRequest;
 
 public class Main {
 
@@ -14,10 +16,12 @@ public class Main {
             System.out.println("Enter 1 to create new Address Book");
             System.out.println("Enter 2 to open an Address Book");
             System.out.println("Enter 3 to show All Address Book");
-            System.out.println("Enter 4 to exit");
+            System.out.println("Enter 4 to search Persons in city");
+            System.out.println("Enter 5 to search Persons in state");
+            System.out.println("Enter 6 to exit");
             option = scanner.nextInt();
-            switch (option){
-                case 1:
+            switch (option) {
+                case 1:6
                     String dummy1 = scanner.nextLine();
                     System.out.println("Enter Address Book Name");
                     String addressBookName = scanner.nextLine();
@@ -33,10 +37,22 @@ public class Main {
                     break;
                 case 3:
                     addressBookOperations.showAddressBooks();
+                    break;
+                case 4:
+                    String dummy3 = scanner.nextLine();
+                    System.out.println("Enter City");
+                    String city = scanner.nextLine();
+                    addressBookOperations.searchPersonInCity(city);
+                    break;
+                case 5:
+                    String dummy0 = scanner.nextLine();
+                    System.out.println("Enter State");
+                    String state = scanner.nextLine();
+                    addressBookOperations.searchPersonInState(state);
                 default:
                     break;
             }
 
-        }while(option != 4);
+        } while (option != 6);
     }
 }

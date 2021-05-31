@@ -24,9 +24,43 @@ public class AddressBookOperations implements IAddressBookOperations{
     @Override
     public void showAddressBooks() {
         for (Map.Entry mapElement : addressBook.entrySet()) {
-            String key = (String)mapElement.getKey();
-            System.out.println(key);
+            System.out.println((String)mapElement.getKey());
         }
 
     }
+
+    @Override
+    public void searchPersonInCity(String city) {
+        int count = 0;
+        for (Map.Entry mapElement : addressBook.entrySet()) {
+            String key = (String)mapElement.getKey();
+            List<Contact> contacts = addressBook.get(key);
+            for (Contact contact : contacts) {
+                if (contact.getCity().equalsIgnoreCase(city)) {
+                    System.out.println(contact);
+                    count++;
+                }
+            }
+        }
+        System.out.println(count + " Persons are from " + city);
+
+    }
+
+    @Override
+    public void searchPersonInState(String state) {
+        int count = 0;
+        for (Map.Entry mapElement : addressBook.entrySet()) {
+            String key = (String)mapElement.getKey();
+            List<Contact> contacts = addressBook.get(key);
+            for (Contact contact : contacts) {
+                if (contact.getState().equalsIgnoreCase(state)) {
+                    System.out.println(contact);
+                    count++;
+                }
+            }
+        }
+        System.out.println(count + " Persons are from " + state);
+    }
+
+
 }
