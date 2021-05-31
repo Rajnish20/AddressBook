@@ -9,14 +9,26 @@ public class Operations implements IOperations {
 
     @Override
     public void addContacts(List<Contact> contacts, Contact contact) {
-        contacts.add(contact);
-        System.out.println("Contact added successfully");
+        String firstName = contact.getFirstName();
+        String lastName = contact.getLastName();
+        int flag = 0;
+        for (Contact value : contacts) {
+            if (value.getFirstName().equalsIgnoreCase(firstName) && value.getLastName().equalsIgnoreCase(lastName)) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 1)
+            System.out.println("Person already existed");
+        else {
+            contacts.add(contact);
+            System.out.println("Contact added successfully");
+        }
     }
 
     @Override
     public void displayContacts(List<Contact> contacts) {
-        for (int i = 0; i < contacts.size(); i++)
-            System.out.println(contacts.get(i));
+        for (Contact contact : contacts) System.out.println(contact);
     }
 
 
@@ -39,16 +51,16 @@ public class Operations implements IOperations {
     @Override
     public void updateContact(List<Contact> contacts, String firstName, String lastName, Contact contact) {
         int flag = 0;
-        for (int i = 0; i < contacts.size(); i++) {
-            if (contacts.get(i).getFirstName().equalsIgnoreCase(firstName) && contacts.get(i).getLastName().equalsIgnoreCase(lastName)) {
+        for (Contact value : contacts) {
+            if (value.getFirstName().equalsIgnoreCase(firstName) && value.getLastName().equalsIgnoreCase(lastName)) {
                 flag = 1;
-                contacts.get(i).setFirstName(contact.getFirstName());
-                contacts.get(i).setLastName(contact.getLastName());
-                contacts.get(i).setCity(contact.getCity());
-                contacts.get(i).setState(contact.getState());
-                contacts.get(i).setPinCode(contact.getPinCode());
-                contacts.get(i).setMobileNo(contact.getMobileNo());
-                contacts.get(i).setEmail(contact.getEmail());
+                value.setFirstName(contact.getFirstName());
+                value.setLastName(contact.getLastName());
+                value.setCity(contact.getCity());
+                value.setState(contact.getState());
+                value.setPinCode(contact.getPinCode());
+                value.setMobileNo(contact.getMobileNo());
+                value.setEmail(contact.getEmail());
                 break;
             }
         }
