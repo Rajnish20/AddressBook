@@ -64,4 +64,15 @@ public class Operations implements IOperations {
         else
             System.out.println("Contact Not found");
     }
+
+    @Override
+    public void getCountInState(List<Contact> contacts, String state) {
+        System.out.println(contacts.stream().filter(n -> n.getState().equalsIgnoreCase(state)).count() + " Persons are from " +state);
+    }
+
+    @Override
+    public void getCountInCity(List<Contact> contacts, String city) {
+        System.out.println(contacts.stream().filter(n -> n.getCity().equalsIgnoreCase(city)).count() + " Persons are from " +city);
+    }
+
 }

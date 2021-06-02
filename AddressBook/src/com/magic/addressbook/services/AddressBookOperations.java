@@ -42,25 +42,10 @@ public class AddressBookOperations implements IAddressBookOperations {
     public void searchPersonInState(String state) {
         for (Map.Entry mapElement : addressBook.entrySet()) {
             List<Contact> contacts = addressBook.get((String) mapElement.getKey());
-            contacts.stream().filter(n -> n.getCity().equalsIgnoreCase(state)).forEach(System.out::println);
+            contacts.stream().filter(n -> n.getState().equalsIgnoreCase(state)).forEach(System.out::println);
         }
     }
 
-    @Override
-    public void getCountInState(String state) {
-        for (Map.Entry mapElement : addressBook.entrySet()) {
-            List<Contact> contacts = addressBook.get((String) mapElement.getKey());
-            System.out.println(contacts.stream().filter(n -> n.getCity().equalsIgnoreCase(state)).count() + "are from " +state);
-        }
-    }
-
-    @Override
-    public void getCountInCity(String city) {
-        for (Map.Entry mapElement : addressBook.entrySet()) {
-            List<Contact> contacts = addressBook.get((String) mapElement.getKey());
-            System.out.println(contacts.stream().filter(n -> n.getCity().equalsIgnoreCase(city)).count() + "are from " +city);
-        }
-    }
 
 
 }

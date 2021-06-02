@@ -11,5 +11,9 @@ public interface IOperations {
     void deleteContacts(List<Contact> contacts, String firstName, String lastName);
 
     void updateContact(List<Contact> contacts, String firstName, String lastName, Contact contact);
+
+    void getCountInState(List<Contact> contacts, String state);
+
+    void getCountInCity(List<Contact> contacts, String city);
 }
 

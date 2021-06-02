@@ -16,9 +16,7 @@ public class Main {
             System.out.println("Enter 3 to show All Address Book");
             System.out.println("Enter 4 to search Persons in city");
             System.out.println("Enter 5 to search Persons in state");
-            System.out.println("Enter 6 to see the number of Persons in a particular City");
-            System.out.println("Enter 7 to see the number of Persons in a particular State");
-            System.out.println("Enter 8 to exit");
+            System.out.println("Enter 6 to exit");
             option = scanner.nextInt();
             scanner.nextLine();
             switch (option) {
@@ -47,20 +45,9 @@ public class Main {
                     String state = scanner.nextLine();
                     addressBookOperations.searchPersonInState(state);
                     break;
-                case 6:
-                    System.out.println("Enter State");
-                    String countInCity = scanner.nextLine();
-                    addressBookOperations.getCountInCity(countInCity);
-                    break;
-                case 7:
-                    System.out.println("Enter State");
-                    String countInState = scanner.nextLine();
-                    addressBookOperations.getCountInState(countInState);
-                    break;
                 default:
                     break;
             }
-
-        } while (option != 8);
+        } while (option != 6);
     }
 }

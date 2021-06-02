@@ -16,8 +16,6 @@ public interface IAddressBookOperations {
 
     void searchPersonInState(String state);
 
-    void getCountInState(String state);
 
-    void getCountInCity(String city);
 
 }

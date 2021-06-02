@@ -17,11 +17,13 @@ public class ContactMenu {
             System.out.println("Enter 2 to delete contact from Address Book");
             System.out.println("Enter 3 o edit/update contact from Address Book");
             System.out.println("Enter 4 to display contacts");
-            System.out.println("Enter 5 to close");
+            System.out.println("Enter 5 to see number of persons in a particular state");
+            System.out.println("Enter 6 to see number of persons in a particular city");
+            System.out.println("Enter 7 to close");
             option = scanner.nextInt();
+            scanner.nextLine();
             switch (option) {
                 case 1:
-                    String dummy = scanner.nextLine();
                     System.out.println("Enter First Name");
                     String firstName = scanner.nextLine();
                     System.out.println("Enter Last Name");
@@ -39,7 +41,6 @@ public class ContactMenu {
                     operations.addContacts(contacts, new Contact(firstName, lastName, city, state, pinCode, mobileNo, email));
                     break;
                 case 2:
-                    String dummy1 = scanner.nextLine();
                     System.out.println("Enter first Name ");
                     String fName = scanner.nextLine();
                     System.out.println("Enter Last Name");
@@ -47,7 +48,6 @@ public class ContactMenu {
                     operations.deleteContacts(contacts,fName, lName);
                     break;
                 case 3:
-                    String dummy2 = scanner.nextLine();
                     System.out.println("Enter first name");
                     String name1 = scanner.nextLine();
                     System.out.println("Enter last name");
@@ -71,11 +71,21 @@ public class ContactMenu {
                 case 4:
                     operations.displayContacts(contacts);
                     break;
+                case 5:
+                    System.out.println("Enter state");
+                    String State = scanner.nextLine();
+                    operations.getCountInState(contacts,State);
+                    break;
+                case 6:
+                    System.out.println("Enter state");
+                    String City = scanner.nextLine();
+                    operations.getCountInCity(contacts,City);
+                    break;
                 default:
                     break;
             }
 
-        } while (option != 5);
+        } while (option != 7);
     }
 }
 
