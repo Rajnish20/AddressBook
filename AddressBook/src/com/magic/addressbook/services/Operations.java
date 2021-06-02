@@ -75,4 +75,8 @@ public class Operations implements IOperations {
         System.out.println(contacts.stream().filter(n -> n.getCity().equalsIgnoreCase(city)).count() + " Persons are from " +city);
     }
 
+    @Override
+    public void sortUsingName(List<Contact> contacts) {
+        contacts.stream().sorted(Comparator.comparing(Contact::getFirstName).thenComparing(Contact::getLastName)).forEach(System.out::println);
+    }
 }
