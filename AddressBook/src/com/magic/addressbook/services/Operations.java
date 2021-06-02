@@ -79,4 +79,14 @@ public class Operations implements IOperations {
     public void sortUsingName(List<Contact> contacts) {
         contacts.stream().sorted(Comparator.comparing(Contact::getFirstName).thenComparing(Contact::getLastName)).forEach(System.out::println);
     }
+
+    @Override
+    public void sortUsingCity(List<Contact> contacts) {
+        contacts.stream().sorted(Comparator.comparing(Contact::getCity)).forEach(System.out::println);
+    }
+
+    @Override
+    public void sortUsingState(List<Contact> contacts) {
+        contacts.stream().sorted(Comparator.comparing(Contact::getState)).forEach(System.out::println);
+    }
 }

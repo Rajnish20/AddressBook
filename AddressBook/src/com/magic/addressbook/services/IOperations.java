@@ -17,5 +17,9 @@ public interface IOperations {
     void getCountInCity(List<Contact> contacts, String city);
 
     void sortUsingName(List<Contact> contacts);
+
+    void sortUsingCity(List<Contact> contacts);
+
+    void sortUsingState(List<Contact> contacts);
 }
 

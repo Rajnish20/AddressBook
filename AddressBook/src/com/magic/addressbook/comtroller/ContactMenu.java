@@ -20,7 +20,9 @@ public class ContactMenu {
             System.out.println("Enter 5 to see number of persons in a particular state");
             System.out.println("Enter 6 to see number of persons in a particular city");
             System.out.println("Enter 7 to see person list in sorted manner by names");
-            System.out.println("Enter 8 to close");
+            System.out.println("Enter 8 to see person list in sorted manner by cities");
+            System.out.println("Enter 9 to see person list in sorted manner by states");
+            System.out.println("Enter 10 to close");
             option = scanner.nextInt();
             scanner.nextLine();
             switch (option) {
@@ -85,11 +87,17 @@ public class ContactMenu {
                 case 7:
                     operations.sortUsingName(contacts);
                     break;
+                case 8:
+                    operations.sortUsingCity(contacts);
+                    break;
+                case 9:
+                    operations.sortUsingState(contacts);
+                    break;
                 default:
                     break;
             }
 
-        } while (option != 8);
+        } while (option != 10);
     }
 }
 
