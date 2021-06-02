@@ -1,36 +1,31 @@
 package com.magic.addressbook.services;
 
 import com.magic.addressbook.entity.Contact;
-
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Operations implements IOperations {
 
-
     @Override
     public void addContacts(List<Contact> contacts, Contact contact) {
-        String firstName = contact.getFirstName();
-        String lastName = contact.getLastName();
-        int flag = 0;
-        for (Contact value : contacts) {
-            if (value.getFirstName().equalsIgnoreCase(firstName) && value.getLastName().equalsIgnoreCase(lastName)) {
-                flag = 1;
-                break;
-            }
-        }
-        if (flag == 1)
+        AtomicInteger existed = new AtomicInteger();
+        contacts.forEach(contact1 -> {
+            if (contact1.getFirstName().equalsIgnoreCase(contact.getFirstName()) && contact1.getLastName().equalsIgnoreCase(contact.getLastName()))
+                existed.set(1);
+        });
+        if (existed.get() == 1)
             System.out.println("Person already existed");
         else {
             contacts.add(contact);
-            System.out.println("Contact added successfully");
+            System.out.println("Person Added Successfully");
         }
+
     }
 
     @Override
     public void displayContacts(List<Contact> contacts) {
-        for (Contact contact : contacts) System.out.println(contact);
+        contacts.forEach(System.out::println);
     }
-
 
     @Override
     public void deleteContacts(List<Contact> contacts, String firstName, String lastName) {
@@ -69,6 +64,4 @@ public class Operations implements IOperations {
         else
             System.out.println("Contact Not found");
     }
-
-
 }

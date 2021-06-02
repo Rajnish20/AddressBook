@@ -1,11 +1,10 @@
 package com.addressbook.services;
+import com.addressbook.entity.*;
 
 public interface IOperations {
 	
-	void addContacts();
+	void addContacts(Contact contact);
 	
-	void deleteContacts();
-	
-	void updateContacts();
+	void display();
 
 }

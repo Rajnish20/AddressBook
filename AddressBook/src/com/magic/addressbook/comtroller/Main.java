@@ -16,17 +16,18 @@ public class Main {
             System.out.println("Enter 3 to show All Address Book");
             System.out.println("Enter 4 to search Persons in city");
             System.out.println("Enter 5 to search Persons in state");
-            System.out.println("Enter 6 to exit");
+            System.out.println("Enter 6 to see the number of Persons in a particular City");
+            System.out.println("Enter 7 to see the number of Persons in a particular State");
+            System.out.println("Enter 8 to exit");
             option = scanner.nextInt();
+            scanner.nextLine();
             switch (option) {
                 case 1:
-                    String dummy1 = scanner.nextLine();
                     System.out.println("Enter Address Book Name");
                     String addressBookName = scanner.nextLine();
                     addressBookOperations.createAddressBook(addressBookName);
                     break;
                 case 2:
-                    String dummy7 = scanner.nextLine();
                     System.out.println("Below mentioned Address Books are available");
                     addressBookOperations.showAddressBooks();
                     System.out.println("Enter name of Address Book");
@@ -37,20 +38,29 @@ public class Main {
                     addressBookOperations.showAddressBooks();
                     break;
                 case 4:
-                    String dummy3 = scanner.nextLine();
                     System.out.println("Enter City");
                     String city = scanner.nextLine();
                     addressBookOperations.searchPersonInCity(city);
                     break;
                 case 5:
-                    String dummy0 = scanner.nextLine();
                     System.out.println("Enter State");
                     String state = scanner.nextLine();
                     addressBookOperations.searchPersonInState(state);
+                    break;
+                case 6:
+                    System.out.println("Enter State");
+                    String countInCity = scanner.nextLine();
+                    addressBookOperations.getCountInCity(countInCity);
+                    break;
+                case 7:
+                    System.out.println("Enter State");
+                    String countInState = scanner.nextLine();
+                    addressBookOperations.getCountInState(countInState);
+                    break;
                 default:
                     break;
             }
 
-        } while (option != 6);
+        } while (option != 8);
     }
 }

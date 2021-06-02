@@ -1,78 +1,26 @@
 package com.addressbook.services;
 
 import com.addressbook.entity.*;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Operations implements IOperations {
-	Scanner scanner = new Scanner(System.in);
-	Contact contact = new Contact();
-	public String firstName;
-	public String lastName;
-	public String address;
-	public String city;
-	public String state;
-	public String pincode;
-	public String mobileNo;
-	public String email;
-
+	
+	List<Contact> contacts = new ArrayList<>();
 	@Override
-	public void addContacts() 
+	public void addContacts(Contact contact) 
 	{
-
-		enterDetails();
-		contact.firstName = firstName;
-		contact.lastName = lastName;
-		contact.address = address;
-		contact.city = city;
-		contact.state = state;
-		contact.pincode = pincode;
-		contact.mobileNo = mobileNo;
-		contact.email = email;
-		System.out.println("Contact Added Successfully to Address Book");
+		contacts.add(contact);
+		System.out.println("Contact added successfully to addressbook");
 	}
 	
-	public void enterDetails()
+	@Override
+	public void display()
 	{
-		System.out.println("Enter First Name");
-	    firstName = scanner.nextLine();
-	    System.out.println("Enter Last Name");
-	    lastName = scanner.nextLine();
-	    System.out.println("Enter address");
-	    address = scanner.nextLine();
-	    System.out.println("Enter State");
-	    state = scanner.nextLine();
-	    System.out.println("Enter city");
-	    city = scanner.nextLine();
-	    System.out.println("Enter Pincode");
-	    pincode = scanner.nextLine();
-	    System.out.println("Enter Mobile No");
-	    mobileNo = scanner.nextLine();
-	    System.out.println("Enter Email Id");
-	    email = scanner.nextLine();
-	}
-	
-
-	@Override
-	public void deleteContacts() {
-		contact = null;
-		
-	}
-
-	@Override
-	public void updateContacts() {
-		enterDetails();
-		contact.firstName = firstName;
-		contact.lastName = lastName;
-		contact.address = address;
-		contact.city = city;
-		contact.state = state;
-		contact.pincode = pincode;
-		contact.mobileNo = mobileNo;
-		contact.email = email;
-		
-		System.out.println("Record Updated Successfully");
-		
-		
+		for(int i = 0; i < contacts.size();i++)
+		{
+			System.out.println(contacts.get(i).firstName);
+		}
 	}
 
 }
